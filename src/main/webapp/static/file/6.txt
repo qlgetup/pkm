@@ -1,0 +1,22 @@
+java集合类重点hashmap实现原理，hashmap和hashtable区别
+java线程池
+java虚拟机垃圾回收
+java static静态
+java抽象类和接口区别
+访问权限public private default protect
+java设计模式
+Serializable接口作用
+java字节流
+框架
+error和exception
+final和finally
+
+
+数据库：基本语句
+索引
+范式
+事务管理
+优化
+
+算法：快排
+二分查找

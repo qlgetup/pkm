@@ -1,0 +1,39 @@
+<canvas id="the-canvas"></canvas>
+
+  table.deleteRow(1);
+                        if(data==1) alert("删除成功")
+                        $('#table tr').each(function(i){                   // 遍历 tr
+                            $(this).children('td:first').each(function(j){  // 遍历 tr 的各个 td
+                                if($(this).text()==data)
+                                alert("第"+(i+1)+"行，第"+(j+1)+"个td的值："+$(this).text()+"。");
+                            });
+                        });
+
+
+
+  <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 social-login">
+                    <h3>...or login with:</h3>
+                    <div class="social-login-buttons">
+                        <a class="btn btn-link-2" href="#">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </a>
+                        <a class="btn btn-link-2" href="#">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                        <a class="btn btn-link-2" href="#">
+                            <i class="fa fa-google-plus"></i> Google Plus
+                        </a>
+                    </div>
+                </div>
+            </div>
+  "<input type=\"file\" id=\"pic\" value=\"\"/>\n" +
+                        "<input type=\"button\" id=\"insert_pic\" value=\"插入图片\" />\n" +
+
+     $('#insert_pic').click(function(){
+                        // 在iframe中插入一张图片
+                        var img = '<img src="' + $('#pic').val() +'" />';
+                        $("body", $d).append(img);
+                    });
+
+风控技术部

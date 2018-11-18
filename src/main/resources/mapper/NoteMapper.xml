@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为UserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.bupt.dao.NoteDao">
+    <insert id="newnote"  useGeneratedKeys="true" keyProperty="id"  parameterType="com.bupt.model.Note">
+        INSERT INTO  note (uid,pid,name,content,type) values(#{uid},#{pid},#{name},#{content},#{type})
+    </insert>
+
+    <select id="note" resultType="com.bupt.model.Note" parameterType="int">
+        SELECT * FROM note WHERE uid = #{0}
+    </select>
+
+    <delete id="deletenote" parameterType="com.bupt.model.Note">
+        DELETE FROM note where id = #{id}
+    </delete>
+
+    <update id="renamenote">
+        UPDATE note SET name=#{name} WHERE  id=#{id}
+    </update>
+
+    <update id="updatenote">
+        UPDATE note SET name=#{name},content=#{content} WHERE  id=#{id}
+    </update>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为UserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.bupt.dao.ArticleDao">
+    <select id="catalog" resultType="com.bupt.model.Article" parameterType="int">
+        SELECT * FROM article WHERE uid = #{0}
+    </select>
+    <insert id="newarticle"  useGeneratedKeys="true" keyProperty="id"  parameterType="com.bupt.model.Article">
+        INSERT INTO  article (uid,name,time,content) values(#{uid},#{name},#{time},#{content})
+    </insert>
+
+    <delete id="deletearticle" parameterType="com.bupt.model.Article">
+        DELETE FROM article where id = #{id}
+    </delete>
+
+    <update id="updatearticle">
+        UPDATE article SET name=#{name},time=#{time},content=#{content} WHERE  id=#{id}
+    </update>
+    <select id="artcom" resultType="com.bupt.model.Userarticle">
+      select article.id,username,name,time,content from article join user on article.uid=user.id order by user.id desc limit 10
+    </select>
+    <select id="search1" resultType="com.bupt.model.Userarticle">
+        select article.id,username,name,time,content from article join user on article.uid=user.id where username=#{username}
+    </select>
+    <select id="search2" resultType="com.bupt.model.Userarticle">
+        select article.id,username,name,time,content from article join user on article.uid=user.id where name like #{name}
+    </select>
+</mapper>

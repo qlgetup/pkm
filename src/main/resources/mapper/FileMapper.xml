@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 设置为UserDao接口方法提供sql语句配置 -->
+<mapper namespace="com.bupt.dao.FileDao">
+    <resultMap id="map" type="com.bupt.model.MyFile">
+        <result column="id" property="id" jdbcType="INTEGER" />
+        <result column="pId" property="pId" jdbcType="INTEGER" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+    <select id="catalog" resultType="com.bupt.model.MyFile" parameterType="int">
+        SELECT * FROM file WHERE uid = #{0}
+    </select>
+
+
+    <insert id="newfolder"  useGeneratedKeys="true" keyProperty="id"  parameterType="com.bupt.model.MyFile">
+        INSERT INTO  file (uid,pId,name,type) values(#{uid},#{pId},#{name},#{type})
+    </insert>
+
+    <delete id="deletefolder" parameterType="com.bupt.model.MyFile">
+        DELETE FROM file where id = #{id}
+    </delete>
+
+    <update id="rename">
+       UPDATE file SET name=#{name} WHERE  id=#{id}
+    </update>
+</mapper>
